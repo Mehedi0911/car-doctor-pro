@@ -1,12 +1,18 @@
 import axios from "axios";
 
 export const getServices = async () => {
-  const res = await axios.get("http://localhost:3000/services/api/get-all");
-  return res.data;
+  console.log(process.env.NEXT_PUBLIC_BASE_URL);
+  try {
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/services/api/get-all`);
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 };
 
 export const getServicesDetails = async (id) => {
-  const res = await fetch(`http://localhost:3000/services/api/${id}`);
-  const service = res.json();
-  return service;
+  const res = await axios.get(`http://localhost:3000/services/api/${id}`);
+  return res.data;
 };

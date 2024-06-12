@@ -2,7 +2,7 @@
 import SocialSignin from "@/components/shared/SocialSignin";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import { BsGithub, BsGoogle } from "react-icons/bs";
 
 const SignUpPage = () => {
