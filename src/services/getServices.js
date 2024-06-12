@@ -1,10 +1,10 @@
 import axios from "axios";
 
 export const getServices = async () => {
-  console.log(process.env.NEXT_PUBLIC_BASE_URL);
   try {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/services/api/get-all`);
-    console.log(res.data);
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/services/api/get-all`
+    );
     return res.data;
   } catch (error) {
     console.log(error);
@@ -13,6 +13,12 @@ export const getServices = async () => {
 };
 
 export const getServicesDetails = async (id) => {
-  const res = await axios.get(`http://localhost:3000/services/api/${id}`);
-  return res.data;
+  try {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/services/api/${id}`
+    );
+    return res.data;
+  } catch (error) {
+    return {};
+  }
 };
