@@ -10,7 +10,7 @@ const Page = ({ params }) => {
 
   const loadBooking = async () => {
     const bookingDetail = await fetch(
-      `http://localhost:3000/my-bookings/api/booking/${params.id}`
+      `https://car-doctor-pro-nine.vercel.app/my-bookings/api/booking/${params.id}`
     );
     const data = await bookingDetail.json();
     setBooking(data.data);
@@ -24,7 +24,7 @@ const Page = ({ params }) => {
       address: event.target.address.value,
     };
     const resp = await fetch(
-      `http://localhost:3000/my-bookings/api/booking/${params.id}`,
+      `https://car-doctor-pro-nine.vercel.app/my-bookings/api/booking/${params.id}`,
       {
         method: "PATCH",
         body: JSON.stringify(updatedBooking),

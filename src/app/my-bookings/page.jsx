@@ -10,7 +10,7 @@ const Page = () => {
   const [bookings, setBooking] = useState([]);
   const loadData = async () => {
     const resp = await fetch(
-      `http://localhost:3000/my-bookings/api/${session?.data?.user?.email}`
+      `https://car-doctor-pro-nine.vercel.app/my-bookings/api/${session?.data?.user?.email}`
     );
     const data = await resp.json();
     setBooking(data?.myBookings);
@@ -18,7 +18,7 @@ const Page = () => {
 
   const handleDelete = async (id) => {
     const deleted = await fetch(
-      `http://localhost:3000/my-bookings/api/booking/${id}`, {
+      `https://car-doctor-pro-nine.vercel.app/my-bookings/api/booking/${id}`, {
         method : "DELETE",
       }
     );

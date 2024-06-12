@@ -13,15 +13,15 @@ const SignUpPage = () => {
       email: event.target.email.value,
       password: event.target.password.value,
     };
-    const resp = await fetch("http://localhost:3000/signup/api", { 
-      method : "POST",
-      body : JSON.stringify(newUser),
-      headers : {
-        "content-type" : "application/json"
-      }
-    })
-    if(resp.status === 200) {
-      event.target.reset()
+    const resp = await fetch("https://car-doctor-pro-nine.vercel.app/signup/api", {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    if (resp.status === 200) {
+      event.target.reset();
     }
   };
 
@@ -74,7 +74,7 @@ const SignUpPage = () => {
           </form>
           <div>
             <h6 className="my-12 text-center">or sign in with</h6>
-            <SocialSignin/>   
+            <SocialSignin />
             <h6 className="my-12 text-center">
               Already have account ?{" "}
               <Link className="text-primary font-semibold" href={"/login"}>
